@@ -1,7 +1,7 @@
 // Initialize game state variables
 let score = parseInt(localStorage.getItem('clicker_score')) || 0;
 let autoClickers = parseInt(localStorage.getItem('clicker_autos')) || 0;
-let autoCost = parseInt(localStorage.getItem('clicker_cost')) || 10;
+let autoCost = parseInt(localStorage.getItem('clicker_cost')) || 2;
 
 // Get UI Elements
 const scoreEl = document.getElementById('score');
@@ -20,7 +20,7 @@ function updateUI() {
 
 // Click the main button
 clickBtn.addEventListener('click', () => {
-    score += 1;
+    score += 50;
     saveAndRender();
 });
 
@@ -29,7 +29,7 @@ buyAutoBtn.addEventListener('click', () => {
     if (score >= autoCost) {
         score -= autoCost;
         autoClickers += 1;
-        autoCost = Math.floor(autoCost * 1.5); // Increase cost for next one
+        autoCost = Math.floor(autoCost * 1.1); // Increase cost for next one
         saveAndRender();
     } else {
         alert("Not enough coins!");
@@ -39,10 +39,10 @@ buyAutoBtn.addEventListener('click', () => {
 // Auto-clicker loop (runs every second)
 setInterval(() => {
     if (autoClickers > 0) {
-        score += autoClickers;
+        score += autoClickers * 10; 
         saveAndRender();
     }
-}, 1000);
+}, 100);
 
 // Save to localStorage
 function saveAndRender() {
