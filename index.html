@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Clicker Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is my first site hosted on GitHub Pages.</p>
+
+    <div class="game-container">
+        <h1>Coin Clicker</h1>
+        <div class="score-display">
+            <h2>Coins: <span id="score">0</span></h2>
+            <p>Per Second: <span id="cps">0</span></p>
+        </div>
+
+        <button id="click-btn">Click Me!</button>
+
+        <div class="shop">
+            <h3>Shop</h3>
+            <button id="buy-auto">Buy Auto-Clicker (Cost: <span id="auto-cost">10</span>)</button>
+        </div>
+
+        <button id="reset-btn">Reset Game</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
